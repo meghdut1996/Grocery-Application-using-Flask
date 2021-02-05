@@ -50,7 +50,7 @@ Project link :- https://simple-grocery-app.herokuapp.com/
 		iii. qunatity_pruchase
 		iv. quantity_receive
 
-# Technical Requirements:-
+### Technical Requirements:-
 	1. Frontend - adminbsb
 	2. Backend - Flask
 	3. Database - SQLITE
