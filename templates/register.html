@@ -6,12 +6,12 @@
 		background-repeat:no-repeat;
 		background-attachment:fixed;
 		background-size:cover;
-		animation: animate 20s ease-in-out infinite;
+		animation: animate 16s ease-in-out infinite;
 		}
 		
 		@keyframes animate{
 		0%,100%{
-				background-image:url({{url_for('static', filename='img/img3.jpg')}});
+			background-image:url({{url_for('static', filename='img/img3.jpg')}});
 		}
 		25%{
 			background-image:url({{url_for('static', filename='img/img1.jpg')}});
