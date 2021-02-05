@@ -9,7 +9,7 @@
     b. Application entry point should be the login page.
     c. by default there should be a ready made admin page.
 
-2. Abulity to maintain product
+2. Ability to maintain product
     a. Add Product.
     b. List all product.
     c. Update product.
