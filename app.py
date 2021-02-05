@@ -11,13 +11,13 @@ app=Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///mydb.sqlite'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY']='thisissecretkey'
-app.config['MAIL_SERVER']='smtp.gmail.com'
-app.config['MAIL_PORT']=465
-app.config['MAIL_USERNAME']='meghdut1996@gmail.com'
-app.config['MAIL_PASSWORD']='*****'
-app.config['MAIL_USE_TLS']=False
-app.config['MAIL_USE_SSL']=True
-mail=Mail(app)
+# app.config['MAIL_SERVER']='smtp.gmail.com'
+# app.config['MAIL_PORT']=465
+# app.config['MAIL_USERNAME']='meghdut1996@gmail.com'
+# app.config['MAIL_PASSWORD']='*****'
+# app.config['MAIL_USE_TLS']=False
+# app.config['MAIL_USE_SSL']=True
+# mail=Mail(app)
 
 db = SQLAlchemy(app)
 login_manager = LoginManager()
@@ -119,9 +119,9 @@ def SignUp():
             try:
                 user=User(username=username, password=password, email=email)
                 user.hash_password(password=user.password)
-                msg=Message('Registration Confirmation', sender='meghdut1996@gmail.com', recipients=[user.email])
-                msg.body="Thanks for joining with us"
-                mail.send(msg)
+#                 msg=Message('Registration Confirmation', sender='meghdut1996@gmail.com', recipients=[user.email])
+#                 msg.body="Thanks for joining with us"
+#                 mail.send(msg)
             except smtplib.SMTPAuthenticationError:
                 message="Username and Password not accepted !!"
                 css_alert_class='alert-warning'
@@ -129,7 +129,7 @@ def SignUp():
             else:
                 db.session.add(user)
                 db.session.commit()
-                return render_template("register.html",message="Registration Successfull! Confirmation mail sent")
+                return render_template("register.html",message="Registration Successfull!")
 
 @app.route("/signin/", methods=['POST'])
 def signin():
