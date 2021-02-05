@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <title>{% block title %}{% endblock title %} | GroceryApp </title>
+	
+    <!-- Favicon-->
+    <link rel="icon" href="../static/img/logo.png" type="image/x-icon">
+
+    <!-- Google Fonts -->
+    <link href="../static/fonts/font1.css" rel="stylesheet" type="text/css">
+    <link href="../static/fonts/font2.css" rel="stylesheet" type="text/css">
+
+    <!-- Bootstrap Core Css -->
+    <link href="../static/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Waves Effect Css -->
+    <link href="../static/css//waves.css" rel="stylesheet" />
+
+    <!-- Animation Css -->
+    <link href="../static/css/animate.css" rel="stylesheet" />
+	
+	<!-- Sweetalert Css -->
+    <link href="../static/css/sweetalert.css" rel="stylesheet" />
+
+    <!-- Custom Css -->
+    <link href="../static/css/style.css" rel="stylesheet">
+	{% block customcss %}
+	{% endblock customcss %}
+</head>
+
+<body class="{{ bodyclass }}">
+    {% block content %}
+	{% endblock content %}
+	
+	{% block js %}
+	{% endblock js %}
+</body>  
+</html>

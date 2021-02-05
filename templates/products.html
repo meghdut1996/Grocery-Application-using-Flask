@@ -1,0 +1,73 @@
+﻿{% extends 'base.html' %}
+{% block title %}Products{% endblock title %}
+{% block customcss %}
+ <link href="../static/css/all-themes.css" rel="stylesheet">
+{% endblock customcss %}
+
+{% set bodyclass="theme-red" %}
+{% block content %}
+{% include './includes/nav.html' %}   
+
+    <section class="content">
+            <!-- Striped Rows -->
+            <div class="row clearfix">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>
+                                All Products
+                            </h2>
+                            <ul class="header-dropdown m-r--5">
+                                <li class="dropdown">
+                                    <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                        <i class="material-icons">more_vert</i>
+                                    </a>
+                                    <ul class="dropdown-menu pull-right">
+                                        <li><a href="/add_product">
+										<button type="button" class="btn btn-block btn-lg btn-success waves-effect">Add New Product</button>
+										</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Code</th>
+                                        <th>NAME</th>
+                                        <th>Quantity</th>
+                                        <th>Created At</th>
+										<th>Updated At</th>
+										<th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+									{% for i in all_products %}
+									<tr>
+                                        <th scope="row">{{i.code}}</th>
+                                        <td>{{i.name}}</td>
+                                        <td>{{i.quantity}}</td>
+                                        <td>{{i.created_at.strftime('%d-%m-%y')}}</td>
+										<td>{{i.updated_at.strftime('%d-%m-%y %H:%M:%S')}}</td>
+										<td>
+											<div class="js-sweetalert">
+												<a class="btn btn-success waves-effect" href="/edit_product/{{i.id}}"> Edit</a>
+												<button class="btn bg-pink waves-effect" data-type="confirm" value="{{i.id}}">Delete</button>
+											</div>
+										</td>
+                                    </tr>
+									{% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #END# Striped Rows -->    
+    </section>
+{% endblock content %}
+
+{% block js %}
+{% include './includes/main-js.html' %}
+{% endblock js %}

@@ -1,0 +1,86 @@
+﻿{% extends 'base.html' %}
+{% block title %}Sign In {% endblock %}
+{% block customcss %}
+	<style>
+		body{
+		background-repeat:no-repeat;
+		background-attachment:fixed;
+		background-size:cover;
+		animation: animate 20s ease-in-out infinite;
+		}
+		
+		@keyframes animate{
+		0%,100%{
+				background-image:url({{url_for('static', filename='img/img3.jpg')}});
+		}
+		20%{
+			background-image:url({{url_for('static', filename='img/img1.jpg')}});
+		}
+		40%{
+			background-image:url({{url_for('static', filename='img/img5.jpg')}});
+		}
+		60%{
+			background-image:url({{url_for('static', filename='img/img4.jpg')}});
+		}
+		8s0%{
+			background-image:url({{url_for('static', filename='img/img2.jpg')}});
+		}
+	}
+	b{
+	color:#ebf527;
+	}
+     </style>	
+{% endblock customcss %}
+
+{% set bodyclass='login-page' %}
+{% block content %}
+    <div class="login-box">
+        <div class="logo">
+		<br>
+		<br>
+		<br>
+            <a><b>Grocery App</b></a>
+            <small>Add Product  |  Adjust Stocks  |  Make Purchases</small>
+        </div>
+        <div class="card">
+            <div class="body">
+                <form id="sign_in" method="POST" action="/signin/">
+                    <div class="msg">Sign in to start your session</div>
+					{% if message %}
+					<div class="alert alert-danger text-center">
+                                <strong>{{message}}</strong> 
+                    </div>
+					{% endif  %}
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">person</i>
+                        </span>
+                        <div class="form-line">
+                            <input type="text" class="form-control" name="username" placeholder="Username" required autofocus>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">lock</i>
+                        </span>
+                        <div class="form-line">
+                            <input type="password" class="form-control" name="password" placeholder="Password" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <button class="btn btn-block bg-pink waves-effect" type="submit">SIGN IN</button>
+                        </div>
+						<div class="m-t-25 m-b--5 align-center">
+                            Dont't have an account?<a href="/register"> Sign up!</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+{% block js %}
+{% include './includes/sign-in-js.html' %}
+{% endblock js %}
